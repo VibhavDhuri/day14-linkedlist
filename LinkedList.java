@@ -1,6 +1,7 @@
 package linkedlist;
 
 public class LinkedList {
+
 	Node head;
 
 	public class Node {
@@ -120,44 +121,37 @@ public class LinkedList {
 		return count;
 
 	}
-	
+
 	public void insertAtSpecificIndex(int userIndex, Object data) {
 
-		// User trying to insert @ first position
 		if (userIndex == 0)
 			addFirst(data);
 
-		// User trying to insert @ last position
 		else if (userIndex == size())
 			addLast(data);
 
-		// User trying to insert @ invalid position
 		else if (userIndex < 0 || userIndex >= size())
 			System.out.println("Invalid index");
 
-		// User trying to insert @ specific index
 		else {
-			// Creating New Node
+
 			Node newNode = new Node(data);
 
-			// To track traversing
 			int index = 0;
 
-			// Pointers to track left & right side elements
 			Node left = head;
 			Node right = left.next;
 
-			// Traverse or Move till last element before user entered index
 			while (index < userIndex - 1) {
 				left = left.next;
 				right = right.next;
 				index++;
 			}
-			// Connecting new Node with right side elements
+
 			newNode.next = right;
-			
-			// Connecting left side elements with new Node
+
 			left.next = newNode;
 		}
 	}
+
 }
