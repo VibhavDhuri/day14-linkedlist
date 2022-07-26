@@ -1,7 +1,6 @@
 package linkedlist;
 
 public class LinkedList {
-
 	Node head;
 
 	public class Node {
@@ -129,7 +128,6 @@ public class LinkedList {
 
 		else if (userIndex == size())
 			addLast(data);
-
 		else if (userIndex < 0 || userIndex >= size())
 			System.out.println("Invalid index");
 
@@ -138,7 +136,6 @@ public class LinkedList {
 			Node newNode = new Node(data);
 
 			int index = 0;
-
 			Node left = head;
 			Node right = left.next;
 
@@ -154,4 +151,24 @@ public class LinkedList {
 		}
 	}
 
+	public void deleteAtSpecificIndex(int userIndex) {
+		if (userIndex == 0)
+			deleteFirst();
+		else if (userIndex == size())
+			deleteLast();
+		else {
+			int index = 1;
+			Node left = head;
+			Node right = head.next;
+
+			while (index < userIndex) {
+				left = left.next;
+				right = right.next;
+				index++;
+			}
+
+			left.next = right.next;
+
+		}
+	}
 }
