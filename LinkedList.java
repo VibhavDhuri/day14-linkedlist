@@ -1,7 +1,6 @@
 package linkedlist;
 
 public class LinkedList {
-
 	Node head;
 
 	public class Node {
@@ -161,5 +160,4 @@ public class LinkedList {
 			left.next = newNode;
 		}
 	}
-
 }
